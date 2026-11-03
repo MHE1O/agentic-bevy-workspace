@@ -8,14 +8,14 @@ Bevy `0.20.1`, Avian `0.8.0`, Leafwing `0.22.0`, `bevy_asset_loader` `0.28.1`, a
 
 ## Linux Setup
 
-Install a C/C++ linker toolchain and `pkg-config`, then install Rust with `rustup` so the repository toolchain file is honored.
+Install a C/C++ linker toolchain, `pkg-config`, and the Wayland/XKB development libraries, then install Rust with `rustup` so the repository toolchain file is honored.
 
 | Distribution | System packages |
 | --- | --- |
-| Debian / Ubuntu | `sudo apt install build-essential pkg-config` |
-| Fedora | `sudo dnf group install development-tools && sudo dnf install pkgconf-pkg-config` |
-| Arch | `sudo pacman -S --needed base-devel pkgconf` |
-| openSUSE | `sudo zypper install -t pattern devel_basis && sudo zypper install pkg-config` |
+| Debian / Ubuntu | `sudo apt install build-essential pkg-config libwayland-dev libxkbcommon-dev` |
+| Fedora | `sudo dnf group install development-tools && sudo dnf install pkgconf-pkg-config wayland-devel libxkbcommon-devel` |
+| Arch | `sudo pacman -S --needed base-devel pkgconf wayland libxkbcommon` |
+| openSUSE | `sudo zypper install -t pattern devel_basis && sudo zypper install pkg-config wayland-devel libxkbcommon-devel` |
 
 The default and headless builds need no audio or `libudev` development packages. Optional physical gamepad support needs the corresponding development package: `libudev-dev` on Debian/Ubuntu, `systemd-devel` on Fedora/openSUSE, or `systemd` on Arch.
 
