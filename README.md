@@ -70,3 +70,7 @@ The resulting executable is `target/release/game_template`. Default release buil
 ## Repository Conventions
 
 Commit `Cargo.lock` for reproducible game and CLI builds. Do not commit `target/`, scratch compatibility builds, local IDE settings, secrets, or machine-specific linker choices. Agents begin at `AGENTS.md`; game status and objectives live in each `games/<name>/SCOPE.md`.
+
+## AI DISCLOSURE
+
+This project is a test of an AI model Kimi K3.1 Pro capabilities. It was fully built and constructed by this model.
