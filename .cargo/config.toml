@@ -1,0 +1,16 @@
+[alias]
+xtask = "run --package xtask --"
+
+# Optional Linux fast-linker configuration. The default remains portable and
+# uses Rust's normal linker driver. Install clang and one linker, then uncomment
+# one complete rustflags line and the linker setting.
+#
+# [target.x86_64-unknown-linux-gnu]
+# linker = "clang"
+# LLD: install lld, then use:
+# rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+# Mold: install mold, then use instead:
+# rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+#
+# Cranelift can further reduce debug codegen time when installed as a custom
+# Rust toolchain component. It is intentionally not required by this workspace.

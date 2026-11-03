@@ -1,0 +1,20 @@
+[package]
+name = "game_template"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+default = []
+dev = ["bevy/dynamic_linking", "dep:dev_diagnostics"]
+gamepad = ["bevy/bevy_gilrs", "leafwing-input-manager/gamepad"]
+
+[dependencies]
+bevy = { workspace = true, features = ["2d_bevy_render", "ui_bevy_render", "bevy_winit", "default_font", "x11", "wayland"] }
+avian2d.workspace = true
+leafwing-input-manager.workspace = true
+bevy_asset_loader.workspace = true
+engine_core.workspace = true
+dev_diagnostics = { workspace = true, optional = true }

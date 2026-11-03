@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.99.0"
+          components: clippy,rustfmt
+      - uses: Swatinem/rust-cache@v2
+      - name: Install portable build prerequisites
+        run: sudo apt-get update && sudo apt-get install -y build-essential pkg-config
+      - name: Verify workspace
+        run: cargo xtask verify
+      - name: Check project metadata
+        run: cargo xtask status
+      - name: Build documentation
+        run: cargo xtask doc --no-deps --private
+      - name: Build portable release
+        run: cargo build --release -p game_template
